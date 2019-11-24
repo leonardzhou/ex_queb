@@ -13,7 +13,7 @@ defmodule ExQueb do
     q = params[Application.get_env(:ex_queb, :filter_param, :q)]
     if q do
       filters = Map.to_list(q)
-      |> Enum.filter(&(not( elem(&1,1) in ["", nil])))
+      |> Enum.filter(&(( elem(&1,1) not in ["", nil])))
       |> Enum.map(&({Atom.to_string(elem(&1, 0)), elem(&1, 1)}))
 
       query
