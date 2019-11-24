@@ -13,7 +13,7 @@ defmodule ExQueb do
     q = params[Application.get_env(:ex_queb, :filter_param, :q)]
     if q do
       filters = Map.to_list(q)
-      |> Enum.filter(&(not elem(&1,1) in ["", nil]))
+      |> Enum.filter(&(not( elem(&1,1) in ["", nil])))
       |> Enum.map(&({Atom.to_string(elem(&1, 0)), elem(&1, 1)}))
 
       query
@@ -73,10 +73,10 @@ defmodule ExQueb do
   end
 
   defp _build_date_filter(query, fld, value, :gte) do
-    where(query, [q], fragment("? >= ?", field(q, ^fld), type(^value, Ecto.DateTime)))
+    where(query, [q], fragment("? >= ?", field(q, ^fld), ^value))
   end
   defp _build_date_filter(query, fld, value, :lte) do
-    where(query, [q], fragment("? <= ?", field(q, ^fld), type(^value, Ecto.DateTime)))
+    where(query, [q], fragment("? <= ?", field(q, ^fld), ^value))
   end
 
   defp cast_date_time(value) do
