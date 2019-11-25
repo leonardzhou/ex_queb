@@ -87,11 +87,8 @@ defmodule ExQueb do
   end
 
   defp cast_date_time(value) do
-    {:ok, date} = Ecto.Date.cast(value)
-
-    date
-    |> Ecto.DateTime.from_date()
-    |> Ecto.DateTime.to_string()
+    {:ok, date} = Ecto.Type.cast(:date, value)
+    "#{Date.to_string(date)} 00:00:00.0"
   end
 
   @doc """
