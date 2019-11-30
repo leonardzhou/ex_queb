@@ -166,8 +166,8 @@ defmodule ExQueb do
         case from.source do
           {_, mod} ->
             case mod.__schema__(:primary_key) do
-              [name | _] -> name
               [name] -> name
+              [name | _] -> name
               _ -> mod.__schema__(:fields) |> List.first()
             end
 

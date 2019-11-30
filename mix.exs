@@ -1,7 +1,7 @@
 defmodule ExQueb.Mixfile do
   use Mix.Project
 
-  @version "1.0.1"
+  @version "1.0.2"
 
   def project do
     [app: :ex_queb,
@@ -32,9 +32,9 @@ defmodule ExQueb.Mixfile do
   end
 
   defp package do
-    [ maintainers: ["Stephen Pallen"],
+    [ maintainers: ["Leonard Zhou"],
       licenses: ["MIT"],
-      links: %{ "Github" => "https://github.com/E-MetroTel/ex_queb" },
+      links: %{ "Github" => "https://github.com/leonardzhou/ex_queb" },
       files: ~w(lib README.md mix.exs LICENSE)]
   end
 end
